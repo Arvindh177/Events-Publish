@@ -22,9 +22,16 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
   credentials: true,
-  origin: 'https://events-publish-frontend.vercel.app',
-  methods: ["POST", "GET"]
+  origin: ['http://127.0.0.1:5173', 'https://events-publish-frontend.vercel.app'], // Add your frontend origin(s) here
+  methods: ["POST", "GET"],
 }));
+
+app.options('*', cors({
+  credentials: true,
+  origin: ['http://127.0.0.1:5173', 'https://events-publish-frontend.vercel.app'], // Preflight origin check
+}));
+
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL, {
