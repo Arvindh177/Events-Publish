@@ -15,7 +15,7 @@ import PlacePage from './pages/PlacePage'
 import BookingsPage from './pages/BookingsPage'
 import BookingPage from './pages/BookingPage'
 
-axios.defaults.baseURL = 'events-publish-api.vercel.app' 
+axios.defaults.baseURL = 'https://events-publish-api.vercel.app/' 
 axios.defaults.withCredentials = true;
 
 function App() {
