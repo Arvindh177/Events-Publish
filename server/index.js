@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
   credentials: true,
-  origin: 'https://events-publish-frontend.vercel.app/',
+  origin: 'https://events-publish-frontend.vercel.app',
   methods: ["POST", "GET"]
 }));
 
