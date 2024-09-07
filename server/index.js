@@ -22,13 +22,14 @@ app.use(cookieParser());
 app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(cors({
   credentials: true,
-  origin: ['http://127.0.0.1:5173', 'https://events-publish-frontend.vercel.app'], // Add your frontend origin(s) here
-  methods: ["POST", "GET"],
+  origin: ['http://127.0.0.1:5173', 'https://events-publish.onrender.com'], // Add all your frontends and server origins here
+  methods: ["POST", "GET", "PUT", "DELETE"], // Allowing the necessary methods
 }));
 
+// Preflight requests
 app.options('*', cors({
   credentials: true,
-  origin: ['http://127.0.0.1:5173', 'https://events-publish-frontend.vercel.app'], // Preflight origin check
+  origin: ['http://127.0.0.1:5173', 'https://events-publish.onrender.com'], // Frontend origin(s)
 }));
 
 
