@@ -32,6 +32,13 @@ app.options('*', cors({
   origin: ['http://127.0.0.1:5173', 'https://events-publish.onrender.com'], // Frontend origin(s)
 }));
 
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.sendStatus(200);
+});
 
 
 // Connect to MongoDB
