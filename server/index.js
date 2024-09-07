@@ -26,11 +26,6 @@ app.use(cors({
   methods: ["POST", "GET", "PUT", "DELETE"], // Allowing the necessary methods
 }));
 
-// Preflight requests
-app.options('*', cors({
-  credentials: true,
-  origin: ['http://127.0.0.1:5173', 'https://events-publish.onrender.com'], // Frontend origin(s)
-}));
 
 app.options('*', (req, res) => {
   res.header('Access-Control-Allow-Origin', req.headers.origin);
